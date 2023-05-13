@@ -1,10 +1,27 @@
 # Ejercicio login y control de acceso
-Ejercicio para el control de acceso a una aplicación web para el Proyecto Diseño y Programación Web de 1º de GTI.
-Los pasos del ejercicio se pueden seguir a través del histórico de commits de este repositorio. 
 
-## Antes de empezar
-- Se debe contar con un servidor Apache con soporte para PHP y un servidor MySQL con una base de datos con la que poder hacer pruebas. Para crear este repositorio se ha usado XAMPP (https://www.apachefriends.org/es/index.html) y se ha creado un abase de datos `test_login`
-- Se puede usar cualquier editor de código (incluso el Bloc de Notas) aunque en este caso concreto se ha usado PHPStorm (https://www.jetbrains.com/phpstorm/)
+## Crear la estructura del proyecto
 
-Una vez verificados estos requisotos, descargar o clonar el repositorio a la carpeta raiz del servidor web (htdocs en el caso de XAMPP)
+Empezaremos por crear la estructura del proyecto:
 
+````
+ejercicio-login/
+|--bbdd/    //Directorio para los scripts de migración y backup de la base de datos
+|  |--datos_ejemplo.sql
+|  |--datos_inicio.sql
+|  |--estructura.sql
+|--doc/     //Directorio para la documentación de la aplicación
+|  |--api.yaml
+|--src/     //Directorio para el código fuente. Lo que se ha de publicar en el servidor.
+|  |--api/
+|  |  |--index.php
+|  |--app/
+|  |  |--index.html
+|  |--index.html
+|--.gitignore
+|--README.md
+````
+
+Aunque para facilitar el trabajo tengamos todo el proyecto en el
+directorio `htdocs`, si pasamos a producción el proyecto, solo deberíamos subir
+al servidor el contenido del directorio `src`

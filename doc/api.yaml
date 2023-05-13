@@ -1,0 +1,12 @@
+# Documentación de la API
+# ver https://swagger.io/specification/
+openapi: 3.0.3
+info:
+  title: Ejercicio login
+  description: Api para autentificación de usuarios y control de acceso
+  version: 1.0.0
+servers:
+  - url: 'http://localhost/ejercico-login/src/api/'
+    description: 'Servidor de desarrollo'
+paths:
+
