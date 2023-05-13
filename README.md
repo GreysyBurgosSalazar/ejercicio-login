@@ -1,9 +1,7 @@
 # Ejercicio login y control de acceso
 
-## Crear la base de datos
+## Crear el formulario de login
 
-En la base de datos crear dos tablas según este esquema:
-
-![Esquema de la base de datos](bbdd/esquema.png)
-
-Insertar al menos dos usuarios y dos roles, uno para cada usuario
+En el punto de entrada de la aplicación `src/index.html` crearemos un formulario
+HTML que usaremos para recoger los datos del usuario (nombre y contraseña).
+Además, deberíamos reservar un espacio para mostrar mensajes de error.
