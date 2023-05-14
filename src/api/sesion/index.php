@@ -1,11 +1,7 @@
 <?php
-// ejecutar un código distinto según el método de la petición HTTP
 switch ($_SERVER['REQUEST_METHOD']) {
-	// método GET
 	case 'GET':
-		// iniciamos la sesión
 		session_start();
-		// si no existe el campo 'user', es que no hay sesión válida
 		if(!isset($_SESSION['user'])) {
 			http_response_code(401);
 		} else {
@@ -13,11 +9,9 @@ switch ($_SERVER['REQUEST_METHOD']) {
 			header('Access-Control-Allow-Origin: *');
 			header('Access-Control-Allow-Methods: PUT, GET, POST, DELETE');
 			header('Content-Type: application/json; charset=utf-8');
-			// devolvemos el contenido de la sesión
 			echo json_encode($_SESSION ['user']);
 		}
 		break;
-	// método POST
 	case 'POST':
 		$bbdd_servidor = 'localhost';
 		$bbdd_nombre = 'test_login';
@@ -50,9 +44,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
 		if (mysqli_affected_rows($connexion) === 1) {
 			$registro = mysqli_fetch_assoc($resultado);
 
-			// Iniciar la sesión
 			session_start();
-			// Almacenar los datos del usuario en la sesión
 			$_SESSION['user'] = $registro;
 
 			$salida = [];
@@ -70,6 +62,25 @@ switch ($_SERVER['REQUEST_METHOD']) {
 		} else {
 			http_response_code(401);
 		}
+		break;
+	case 'DELETE':
+		// Inicializar la sesión.
+		session_start();
+
+		// Destruir todas las variables de sesión.
+		$_SESSION = array();
+
+		// Si se desea destruir la sesión completamente, borre también la cookie de sesión.
+		if (ini_get("session.use_cookies")) {
+			$params = session_get_cookie_params();
+			setcookie(session_name(), '', time() - 42000,
+				$params["path"], $params["domain"],
+				$params["secure"], $params["httponly"]
+			);
+		}
+
+		// Finalmente, destruir la sesión.
+		session_destroy();
 		break;
 	default:
 		http_response_code(405);

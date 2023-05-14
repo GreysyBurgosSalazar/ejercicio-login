@@ -2,5 +2,4 @@
 
 ## Logout
 
-El botón de logout invocará una función que hará una petición a la API para
-eliminar la sesión.
+En `api/sesion/index.php` implementamos el código para el método DELETE
