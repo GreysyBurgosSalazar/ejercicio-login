@@ -38,7 +38,7 @@ if(mysqli_affected_rows($connexion) === 1) {
 
 	$salida = [];
 	$salida['id'] 		= $registro['id'];
-	$salida['nombre'] 	= $registro['id'];
+	$salida['nombre'] 	= $registro['nombre'];
 	$salida['rol'] 		= $registro['rol'];
 
 	http_response_code(200);

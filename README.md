@@ -2,9 +2,8 @@
 
 ## Control de acceso
 
-### Página de bienvenida
+### Control de acceso en el cliente
 
-Vamos a convertir la página `app/index.html` en una página de bienvenida, de
-forma que:
-- No se pueda acceder a ella si no se está autentificado
-- Muestre un mensaje de bienvenida personalizado al usuario
+Para controlar el acceso podemos crear un script de JavaScrip, que se ejecute
+nada más cargarse la página, que consulte a la API si hay una sesión creada y si
+es así muestra el mensaje de bienvenida y si no redirecciona al login.
