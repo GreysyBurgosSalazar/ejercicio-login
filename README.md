@@ -1,8 +1,8 @@
 # Ejercicio login y control de acceso
 
-## Construir y devolver la salida
+## Recibir y procesar el resultado
 
-Si el resultado de la consulta contiene un registro, podemos usar los arrays
-asociativos de PHP para construir el contenido de la respuesta.
-Con `json_encode()` podemos formatear el array en JSON y después enviarlo a la
-salida.
+Cuando en el cliente recibamos el resultado de la petición HTTP, según su estado
+y/o contenido realizaremos las acciones pertinentes.
+En este caso según si el estado de la respuesta es OK o no, redireccionamos al
+usuario a una página o mostramos mensaje de error.
