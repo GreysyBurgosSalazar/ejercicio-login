@@ -10,7 +10,7 @@ async function login(event) {
     const formData = new FormData(event.target);
 
     /* Usamos fetch para enviar al servidor los datos */
-    const respuesta = await fetch('api/sesion', {
+    const respuesta = await fetch('api/sesion/', {
         method: 'post', // método HTTP
         body: formData  // el objeto FormData se puede incluir directamente como contenido del body
     })

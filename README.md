@@ -2,9 +2,14 @@
 
 ## Recoger la petición en el servidor
 
-### Preparar el endpoint
+PHP dispone de unas variables
+predefinidas (https://www.php.net/manual/es/reserved.variables.php) que, entre
+otras cosas nos permiten acceder de forma sencilla a los parámetros que se
+envían en la petición HTTP
 
-Debemos ser capaces de recoger y procesar las peticiones que nos lleguen al
-servidor.
-Por ahora, puesto que solo vamos a tratar con un recurso (la sesión), podemos
-preparar un archivo PHP específico.
+- `$_GET`: es un array asociativo que contiene los parámetros enviados en la
+  query de la URL
+- `$_POST`: es un array asociativo que contiene los parámetros incluidos en el
+  body, si están formateados como datos de formulario
+
+Podemos usar el array `$_POST` para recuperar los parámetros que se nos pasan.
