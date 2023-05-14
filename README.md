@@ -2,9 +2,7 @@
 
 ## Recoger la información del usuario
 
-Debemos recoger la información que ha introducido el usuario en el formulario y
-que esta es válida. En nuestro caso, debemos asegurarnos que el usuario ha
-introducido un nombre y una contraseña, para lo cual, usaremos el atributo
-HTML `required`.
-El navegador realizará una validación previa al envío del formulario, es decir,
-si no se cumplen los requisitos ni siquiera se produce el evento `submit`.
+Para recoger toda la información que contenga el formulario sin preocuparnos de
+los campos que este pueda contener, podemos usar el objeto de
+JavaScript `FormData` (ver https://developer.mozilla.org/es/docs/Web/API/FormData).
+Este objeto recoge todos los campos de un formulario que tengan un atributo `name`. 
