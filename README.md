@@ -2,7 +2,10 @@
 
 ## Control de acceso
 
-### Documentar la API
+### Implementar el endpoint GET
 
-La API debe incluir un endpoint que permita obtener los datos de la sesión
-activa si esta existe.
+En el archivo `api/sesion/index.php`, por ejemplo con una sentencia `switch`,
+definimos qué se ejecutará si el método de la petición HTTP es POST (lo que ya
+teníamos hecho) o GET. En este último caso, comprobamos si existe una sesión
+válida y si es así, devolvemos los datos del usuario, y si no devolvemos un
+error 401 
