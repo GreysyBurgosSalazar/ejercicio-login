@@ -1,10 +1,10 @@
 # Ejercicio login y control de acceso
 
-## Capturar el envío del formulario
+## Recoger la información del usuario
 
-Necesitamos que el formulario no se envíe, sino que, cuando se pulse el botón
-de envío, recojamos la información introducida por el usuario y la enviemos al
-servidor para validarla.
-
-Creamos un archivo de JavaScript en el que capturamos el evento `submit` del
-formulario.
+Debemos recoger la información que ha introducido el usuario en el formulario y
+que esta es válida. En nuestro caso, debemos asegurarnos que el usuario ha
+introducido un nombre y una contraseña, para lo cual, usaremos el atributo
+HTML `required`.
+El navegador realizará una validación previa al envío del formulario, es decir,
+si no se cumplen los requisitos ni siquiera se produce el evento `submit`.
