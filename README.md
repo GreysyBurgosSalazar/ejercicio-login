@@ -2,9 +2,10 @@
 
 ## Control de acceso
 
-### Página de bienvenida
+### Control de acceso en el servidor
 
-Vamos a convertir la página `app/index.html` en una página de bienvenida, de
-forma que:
-- No se pueda acceder a ella si no se está autentificado
-- Muestre un mensaje de bienvenida personalizado al usuario
+Una opción para controlar el acceso a una página es hacerlo en el servidor,
+antes de enviar la página al cliente. La página debe ser un archivo PHP y estar
+alojada en el mismo servidor que la API.
+Incluimos un script en la página que compruebe si existe la sesión y si no es
+así, redireccionamos al login.

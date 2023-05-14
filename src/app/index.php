@@ -1,3 +1,11 @@
+<?php
+/* Comprobar que hay una sesión creada y que contiene un campo 'user' */
+session_start();
+if(!isset($_SESSION['user'])) {
+    // si no existe redirigir al login
+    header('Location: ../');
+}
+?>
 <!doctype html>
 <html lang="es">
 <head>
@@ -11,7 +19,7 @@
 <body>
 
 <header>
-    <div id="welcome">Bienvenido: <span id="user-name"></span></div>
+    <div id="welcome">Bienvenido:&nbsp;<span id="user-name"><?php echo $_SESSION['user']['nombre'] ?></span></div>
 </header>
 
 </body>
