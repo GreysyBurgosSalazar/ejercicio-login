@@ -5,10 +5,7 @@
 Para verificar que el usuario es auténtico, debemos consultar la base de datos y
 obtener si existe algún registro con esos valores para `nombre` y `password`
 
-### Crear y ejecutar la consulta
+### Recuperar y validar el resultado
 
-Definimos una consulta SQL, para comprobar que se corresponde con lo que
-necesitamos podemos usar una herramienta como la consola de SQL de phpMyAdmin y
-comprobar que funciona y devuelve lo que tiene que devolver.
-
-Utilizando la función `mysqli_quiery()` ejecutamos la consulta.
+Usando la función `mysqli_affected_rows()` podemos sabre cuantos resultados
+devuelve la consulta, si solo es uno, es que el usuario existe y es correcto.
