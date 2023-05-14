@@ -2,5 +2,5 @@
 
 ## Logout
 
-Para ejecutar el logout, bastará con borrar la sesión.
-Primero podemos crear un botón de logout.
+El botón de logout invocará una función que hará una petición a la API para
+eliminar la sesión.
