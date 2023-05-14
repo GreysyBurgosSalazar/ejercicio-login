@@ -66,4 +66,21 @@ header {
     border-top-left-radius: 8px;
     display: flex;
     align-items: center;
+    gap: 1em
+}
+
+#welcome button {
+    font-family: inherit;
+    font-size: inherit;
+    border: solid 1px var(--color-texto);
+    color: var(--color-texto);
+    background-color: white;
+    border-radius: 8px;
+    padding: 7px 14px;
+    cursor: pointer;
+}
+
+#welcome button:hover {
+    color: white;
+    background-color: var(--color-texto);
 }
