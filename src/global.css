@@ -43,3 +43,23 @@ input[type="submit"] {
     color: var(--color-txt-primario);
     padding: 8px 32px;
 }
+
+header {
+    background-color: var(--color-bg-primario);
+    color: var(--color-txt-primario);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, .3);
+    height: 60px;
+    display: flex;
+    justify-content: end;
+    align-items: stretch;
+}
+
+#welcome {
+    background-color: white;
+    color: var(--color-texto);
+    padding: 6px 20px;
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+    display: flex;
+    align-items: center;
+}
