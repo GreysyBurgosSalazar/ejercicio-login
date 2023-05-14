@@ -2,8 +2,7 @@
 
 ## Control de acceso
 
-### Control de acceso en el cliente
+### Documentar la API
 
-Para controlar el acceso podemos crear un script de JavaScrip, que se ejecute
-nada más cargarse la página, que consulte a la API si hay una sesión creada y si
-es así muestra el mensaje de bienvenida y si no redirecciona al login.
+La API debe incluir un endpoint que permita obtener los datos de la sesión
+activa si esta existe.

@@ -1,31 +1,38 @@
-# Documentación de la API
-# ver https://swagger.io/specification/
-
-# versión de OpenAPI
 openapi: 3.0.3
-
-# información general de la API
 info:
   title: Ejercicio login
   description: Api para autentificación de usuarios y control de acceso
   version: 1.0.0
-
-# servidores disponibles para ejecutar la API
 servers:
   - url: 'http://localhost/ejercico-login/src/api/'
     description: 'Servidor de desarrollo'
-
-# Rutas de acceso (endpoints o recursos) definidas en la API
 paths:
   /sesion:
-    # métodos HTTP admitidos
+    get:
+      summary: Devuelve la sesión activa, si existe
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  nombre:
+                    type: string
+                  rol:
+                    type: string
+        '401':
+          description: No existe sesión.
+        '5XX':
+          description: Error del servidor.
     post:
       summary: Crea una sesión para un usuario.
-      # especifica los datos que deben incluirse en el cuerpo de la petición HTTP
       requestBody:
         required: true
         content:
-          # formato de datos de formulario
           application/x-www-form-urlencoded:
             schema:
               type: object
@@ -37,7 +44,6 @@ paths:
               required:
                 - nombre
                 - password
-      # respuestas que puede devolver el servidor
       responses:
         '200':
           description: OK
