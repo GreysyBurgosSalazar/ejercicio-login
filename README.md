@@ -1,15 +1,11 @@
 # Ejercicio login y control de acceso
 
-## Recoger la petición en el servidor
+## Validar el usuario contra la base de datos
 
-PHP dispone de unas variables
-predefinidas (https://www.php.net/manual/es/reserved.variables.php) que, entre
-otras cosas nos permiten acceder de forma sencilla a los parámetros que se
-envían en la petición HTTP
+Para verificar que el usuario es auténtico, debemos consultar la base de datos y
+obtener si existe algún registro con esos valores para `nombre` y `password`
 
-- `$_GET`: es un array asociativo que contiene los parámetros enviados en la
-  query de la URL
-- `$_POST`: es un array asociativo que contiene los parámetros incluidos en el
-  body, si están formateados como datos de formulario
+### Conectarnos a la base de datos
 
-Podemos usar el array `$_POST` para recuperar los parámetros que se nos pasan.
+El primer paso será establecer en PHP una conexión a la base de datos,
+utilizando la función `mysqli_connect()`
