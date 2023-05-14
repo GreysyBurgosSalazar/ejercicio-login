@@ -1,0 +1,53 @@
+#login {
+    /* Posicionar en el centro de la página */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 400px;
+    height: 310px;
+    border-radius: 16px;
+
+    background-color: white;
+    border: none;
+    border-bottom: solid 1px var(--color-texto);
+}
+
+#login header {
+    background-color: var(--color-bg-primario);
+    color: var(--color-txt-primario);
+    padding: 16px 32px 12px;
+    border-radius: 16px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, .3);
+
+    height: 70px;
+}
+
+#login form {
+    padding: 16px 32px 12px;
+    display: grid;
+    grid-template-columns: .5fr 1fr;
+    gap: 16px;
+    align-items: center;
+}
+
+#login input[type="submit"] {
+    grid-column: span 2;
+    justify-self: center;
+}
+
+#output {
+    opacity: 0;
+    margin: 16px 32px 12px;
+    padding: 8px;
+    background-color: transparent;
+    color: var(--color-txt-primario);
+    text-align: center;
+    transition: opacity .5s;
+}
+
+#output.error {
+    opacity: 1;
+    background-color: var(--color-error);
+}

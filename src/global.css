@@ -1,0 +1,45 @@
+/* ver https://fonts.google.com/ */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+:root {
+    --color-fondo: #e5effa;
+    --color-texto: #143057;
+    --color-bg-primario: #00ace6;
+    --color-txt-primario: #ffffff;
+    --color-error: #d92727;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--color-texto);
+    font-size: 16px;
+
+    /* https://cssgradient.io/ */
+    background: var(--color-fondo);
+    background: linear-gradient(0deg, var(--color-fondo) 5%, #e6eaf0 95%);
+    height: 100dvh;
+}
+
+input {
+    font-family: inherit;
+    font-size: inherit;
+    border: none;
+    border-bottom: solid 1px var(--color-bg-primario);
+    border-radius: 8px;
+    box-shadow: inset 1px 1px 3px rgba(0, 0, 0, .1);
+    outline-color: var(--color-bg-primario);
+    padding: 7px 14px;
+}
+
+input[type="submit"] {
+    box-shadow: none;
+    background-color: var(--color-bg-primario);
+    color: var(--color-txt-primario);
+    padding: 8px 32px;
+}
