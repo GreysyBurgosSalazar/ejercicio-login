@@ -1,7 +1,10 @@
 # Ejercicio login y control de acceso
 
-## Crear el formulario de login
+## Capturar el envío del formulario
 
-En el punto de entrada de la aplicación `src/index.html` crearemos un formulario
-HTML que usaremos para recoger los datos del usuario (nombre y contraseña).
-Además, deberíamos reservar un espacio para mostrar mensajes de error.
+Necesitamos que el formulario no se envíe, sino que, cuando se pulse el botón
+de envío, recojamos la información introducida por el usuario y la enviemos al
+servidor para validarla.
+
+Creamos un archivo de JavaScript en el que capturamos el evento `submit` del
+formulario.
