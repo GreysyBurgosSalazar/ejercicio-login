@@ -1,10 +1,10 @@
 # Ejercicio login y control de acceso
 
-## Enviar la información al servidor
+## Recoger la petición en el servidor
 
-Para enviar la información al servidor usaremos la función `fetch` de
-JavaScript, teniendo en cuenta lo especificado en la documentación de la API.
+### Preparar el endpoint
 
-Comprobaremos que los datos se envían correctamente, pero la respuesta del
-servidor es un error 404, ya que no existe la
-ruta `http://localhost/ejercicio-login/src/api/sesion`
+Debemos ser capaces de recoger y procesar las peticiones que nos lleguen al
+servidor.
+Por ahora, puesto que solo vamos a tratar con un recurso (la sesión), podemos
+preparar un archivo PHP específico.
