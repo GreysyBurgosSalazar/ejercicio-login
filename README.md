@@ -1,11 +1,8 @@
 # Ejercicio login y control de acceso
 
-## Validar el usuario contra la base de datos
+## Construir y devolver la salida
 
-Para verificar que el usuario es auténtico, debemos consultar la base de datos y
-obtener si existe algún registro con esos valores para `nombre` y `password`
-
-### Recuperar y validar el resultado
-
-Usando la función `mysqli_affected_rows()` podemos sabre cuantos resultados
-devuelve la consulta, si solo es uno, es que el usuario existe y es correcto.
+Si el resultado de la consulta contiene un registro, podemos usar los arrays
+asociativos de PHP para construir el contenido de la respuesta.
+Con `json_encode()` podemos formatear el array en JSON y después enviarlo a la
+salida.

@@ -29,11 +29,25 @@ $sql = "SELECT `usuarios`.`id`,
 $resultado = mysqli_query($connexion, $sql);
 
 if(mysqli_affected_rows($connexion) === 1) {
+	// almacenamos en un array asociativo el primer registro del resultado
+	$registro = mysqli_fetch_assoc($resultado);
+
+	// creamos un array vacío para la salida
+	$salida = [];
+	// asignamos valores a las claves según esté definido en la API
+	$salida['id'] 		= $registro['id'];
+	$salida['nombre'] 	= $registro['id'];
+	$salida['rol'] 		= $registro['rol'];
+
 	http_response_code(200);
+
+	// cabeceras HTTP recomendadas para la respuesta de la API
+	header('Access-Control-Allow-Origin: *');
+	header('Access-Control-Allow-Methods: PUT, GET, POST, DELETE');
+	header('Content-Type: application/json; charset=utf-8');
+
+	// mandamos la salida formateada en JSON
+	echo json_encode($salida);
 } else {
 	http_response_code(401);
 }
-
-
-
-echo "usuario: $usuario, password: $password";
