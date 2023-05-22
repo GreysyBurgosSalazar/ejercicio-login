@@ -1,0 +1,47 @@
+section {
+    margin: 2em auto 0;
+    max-width: 700px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+section header {
+    align-items: center;
+    padding: 2em;
+}
+
+section > div {
+    text-align: right;
+    padding: 2em;
+}
+
+table {
+    margin: 3em 2em 0;
+    border-collapse: collapse;
+}
+
+table td, table th {
+    padding: .3em;
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: var(--color-fondo);
+}
+
+table td:has(button) {
+    width: 5em;
+    text-align: center;
+}
+
+section button {
+    background-color: var(--color-bg-primario);
+    color: var(--color-txt-primario);
+    border: none;
+    padding: .3em 1em;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, .3);
+}
+
+button.danger {
+    background-color: var(--color-error);
+}
