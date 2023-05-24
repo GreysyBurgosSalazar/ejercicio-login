@@ -12,6 +12,8 @@
         }
         document.getElementById('user-name').innerText = data.nombre;
         document.body.classList.remove("loading");
+        // Comprobar si existe una función init y si es así, ejecutarla
+        if(window.init) window.init();
     } else {
         location.href = '../';
     }
