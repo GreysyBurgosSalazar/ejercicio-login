@@ -4,11 +4,21 @@ if (!isset($peticion)) {
 	die();
 }
 
-// Incluir el archivo de conexión a la BBDD.
-// Verificamos la variable $connexion para ocultar errores en PHPStorm
-// ¡¡¡¡¡El path se debe especificar a partir de api/index.php,
-// ya que el archivo se ejecutará ahí!!!!!
 require_once 'includes/connexion.php';
 if (!isset($connexion)) die();
 
-$salida['metodo'] = 'GET';
+// sentencia para obtener los datos de los usuarios
+$sql = "SELECT `usuarios`.`id`, 
+       `usuarios`.`nombre`, 
+       `roles`.`id` as `idRol`, 
+       `roles`.`rol` 
+	FROM `usuarios` 
+		INNER JOIN `roles` ON `usuarios`.`rol` = `roles`.`id`";
+
+// ejecutar la sentencia
+$result = mysqli_query($connexion, $sql);
+
+// volcar los registros a la salida como arrays asociativos
+while ($row = mysqli_fetch_assoc($result)) {
+	$salida[] = $row;
+}
