@@ -1,0 +1,33 @@
+### Login
+# Antes de probar cualquier otra petición debemos logearnos
+POST http://localhost/ejercicio-login/src/api/sesion/
+Content-Type: application/x-www-form-urlencoded
+
+nombre=admin&password=1234
+
+### Todos los usarios
+GET http://localhost/ejercicio-login/src/api/usuarios
+
+### Crear un usuario
+POST http://localhost/ejercicio-login/src/api/usuarios
+Content-Type: application/x-www-form-urlencoded
+
+nombre=user&password=1234&rol=2
+
+### Obtener un usuario
+GET http://localhost/ejercicio-login/src/api/usuarios/1
+
+
+### Modificar un usuario
+PUT http://localhost/ejercicio-login/src/api/usuarios/3
+Content-Type: application/json
+
+{
+  "id": 3,
+  "nombre": "Usuario",
+  "idRol": 2,
+  "rol": "user"
+}
+
+### Eliminar un usuario
+DELETE http://localhost/ejercicio-login/src/api/usuarios/3
