@@ -7,7 +7,14 @@ $recurso = $peticion->recurso();
 
 $salida = [];
 
-// importar el archivo que procesa el recurso
-require_once "recursos/$recurso.php";
+// archivo a importar según el recurso solicitado
+$file = "recursos/$recurso.php";
+// comprobar que existe, si no, devolver error 400
+if(!file_exists($file)) {
+	http_response_code(400);
+	die();
+}
+// importar el archivo
+require_once $file;
 
 echo json_encode($salida);
