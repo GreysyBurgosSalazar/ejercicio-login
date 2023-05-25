@@ -1,6 +1,7 @@
 # Ejercicio login y control de acceso
 
-## Todos los usuarios
+## Datos de un usuario
 
-El proceso ahora es el habitual. Se define la consulta, se obtienen los
-registros y se incorporan a la salida.
+Si queremos los datos de un usuario basta con recoger la `id` que se nos pasa
+por el path, modificar la sentencia sql en consonancia y devolver el resultado a
+la salida.

@@ -7,7 +7,6 @@ if (!isset($peticion)) {
 require_once 'includes/connexion.php';
 if (!isset($connexion)) die();
 
-// sentencia para obtener los datos de los usuarios
 $sql = "SELECT `usuarios`.`id`, 
        `usuarios`.`nombre`, 
        `roles`.`id` as `idRol`, 
@@ -15,10 +14,15 @@ $sql = "SELECT `usuarios`.`id`,
 	FROM `usuarios` 
 		INNER JOIN `roles` ON `usuarios`.`rol` = `roles`.`id`";
 
-// ejecutar la sentencia
-$result = mysqli_query($connexion, $sql);
-
-// volcar los registros a la salida como arrays asociativos
-while ($row = mysqli_fetch_assoc($result)) {
-	$salida[] = $row;
+// Si hay parámetros en el path
+if (count($peticion->parametrosPath()) > 0) {
+	// ejecutamos la sentencia SQL añadiéndole el filtrado por la id
+	$result = mysqli_query($connexion, $sql . " WHERE `usuarios`.`id` = " . intval($peticion->parametrosPath()[0]));
+	// como solo esperamos un resultado, lo ponemos como salida
+	$salida = mysqli_fetch_assoc($result);
+} else {
+	$result = mysqli_query($connexion, $sql);
+	while ($row = mysqli_fetch_assoc($result)) {
+		$salida[] = $row;
+	}
 }
