@@ -13,19 +13,10 @@ switch ($_SERVER['REQUEST_METHOD']) {
 		}
 		break;
 	case 'POST':
-		$bbdd_servidor = 'localhost';
-		$bbdd_nombre = 'test_login';
-		$bbdd_user = 'root';
-		$bbdd_password = '';
-
-		try {
-			$connexion = mysqli_connect($bbdd_servidor, $bbdd_user, $bbdd_password, $bbdd_nombre);
-		} catch (Exception $e) {
-			http_response_code(500);
-			die("Error: " . mysqli_connect_errno() . " " . mysqli_connect_error());
-		}
-
-		mysqli_query($connexion, 'SET NAMES utf8mb4');
+		// Incluir el archivo de conexión a la BBDD.
+		// Verificamos la variable $conexion para ocultar errores en PHPStorm
+		require_once '../includes/connexion.php';
+		if(!isset($connexion)) die();
 
 		$usuario = $_POST['nombre'];
 		$password = $_POST['password'];
