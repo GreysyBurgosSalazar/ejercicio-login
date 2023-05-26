@@ -5,7 +5,7 @@ if (!isset($peticion)) {
 }
 
 // verificar rol de administrador
-if($_SESSION['idRol'] !== "1") {
+if($_SESSION['user']['idRol'] !== "1") {
 	http_response_code(401);
 	die();
 }

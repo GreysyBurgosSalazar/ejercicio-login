@@ -14,9 +14,16 @@ Content-Type: application/x-www-form-urlencoded
 
 nombre=user&password=1234&rol=2
 
+> {%
+    client.assert(response.status === 200, 'Falló la creación de usuario');
+%}
+
 ### Obtener un usuario
 GET http://localhost/ejercicio-login/src/api/usuarios/2
 
+> {%
+    client.assert(response.status === 200, 'No se recuperó el usuario 2');
+%}
 
 ### Modificar un usuario
 PUT http://localhost/ejercicio-login/src/api/usuarios/3
@@ -29,5 +36,16 @@ Content-Type: application/json
   "rol": "administrador"
 }
 
+> {%
+    client.assert(response.status === 200, 'Falló la modificación del usuario');
+%}
+
 ### Eliminar un usuario
 DELETE http://localhost/ejercicio-login/src/api/usuarios/3
+
+> {%
+    client.assert(response.status === 200, 'Falló la eliminación del usuario');
+%}
+
+### Logout
+DELETE http://localhost/ejercicio-login/src/api/sesion
