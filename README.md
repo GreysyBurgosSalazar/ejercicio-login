@@ -1,6 +1,6 @@
 # Ejercicio login y control de acceso
 
-## Modificar un usuario
+## Eliminar un usuario
 
-Para modificar un usuario, recogemos los parámetros recibidos en el body, creamos la
+Para eliminar un usuario, recogemos el `id` recibido en el path, creamos la
 sentencia correspondiente y la ejecutamos.
