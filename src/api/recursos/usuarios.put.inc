@@ -1,12 +1,24 @@
 <?php
-/*
- * Comprobar que están definidas las variables que vamos a necesitar.
- * Si no es así, es que el script no se ha importado a index.php, y cortamos
- * su ejecución.
- */
 if(!isset($peticion)) {
 	http_response_code(500);
 	die();
 }
 
-$salida['metodo'] = 'PUT';
+require_once 'includes/connexion.php';
+if (!isset($connexion)) die();
+
+$id = intval($peticion->parametrosPath()[0]);
+$nombre = $peticion->parametrosBody()->nombre;
+$rol = intval($peticion->parametrosBody()->idRol);
+
+$sql = "UPDATE `usuarios` SET `nombre`='$nombre',`rol`=$rol WHERE `id` = $id";
+
+// Para comprobar si se ha ejecutado correctamente la sentencia usamos try ... catch
+try {
+	mysqli_query($connexion, $sql);
+	http_response_code(200);
+} catch (Exception $exception) {
+	http_response_code(500);
+	// podemos usar mysqli_errno para concretar el código de respuesta
+	die(mysqli_errno($connexion));
+}

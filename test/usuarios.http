@@ -12,7 +12,7 @@ GET http://localhost/ejercicio-login/src/api/usuarios
 POST http://localhost/ejercicio-login/src/api/usuarios
 Content-Type: application/x-www-form-urlencoded
 
-nombre=user&password=1234&rol=
+nombre=user&password=1234&rol=2
 
 ### Obtener un usuario
 GET http://localhost/ejercicio-login/src/api/usuarios/2
@@ -24,9 +24,9 @@ Content-Type: application/json
 
 {
   "id": 3,
-  "nombre": "Usuario",
-  "idRol": 2,
-  "rol": "user"
+  "nombre": "Pepe",
+  "idRol": 1,
+  "rol": "administrador"
 }
 
 ### Eliminar un usuario
