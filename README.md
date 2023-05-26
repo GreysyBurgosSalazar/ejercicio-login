@@ -1,6 +1,7 @@
 # Ejercicio login y control de acceso
 
-## Eliminar un usuario
+## Verificar rol del usuario en la API
 
-Para eliminar un usuario, recogemos el `id` recibido en el path, creamos la
-sentencia correspondiente y la ejecutamos.
+Ciertas operaciones de la API pueden estar restringidas a ciertos roles de
+usuario. Esta comprobación la podemos hacer usando la sesión almacenada en el
+servidor. 

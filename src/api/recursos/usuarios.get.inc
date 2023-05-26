@@ -4,6 +4,12 @@ if (!isset($peticion)) {
 	die();
 }
 
+// verificar rol de administrador
+if($_SESSION['idRol'] !== "1") {
+	http_response_code(401);
+	die();
+}
+
 require_once 'includes/connexion.php';
 if (!isset($connexion)) die();
 
