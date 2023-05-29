@@ -82,6 +82,17 @@
     </div>
 </section>
 
+<dialog id="editUsuario">
+    <form>
+        <label>Nombre: <input name="nombre"></label>
+        <br>
+        <label>Rol: <input name="idRol"></label>
+        <br>
+        <input type="submit"> <button>Cancelar</button>
+    </form>
+</dialog>
+
+
 <script>
     const usuariosModel = new UsuariosModel();
 
@@ -96,10 +107,19 @@
             body.innerHTML += `<tr>
             <td>${usuario.nombre}</td>
             <td>${usuario.rol}</td>
-            <td><button>Editar</button></td>
+            <td><button onclick="abrirEditarUsuario(${usuario.id})">Editar</button></td>
             <td><button class="danger">Eliminar</button></td>
         </tr>`;
         })
+    }
+
+    async function abrirEditarUsuario(id) {
+        const usuario = await usuariosModel.getUsuario(id);
+        const dialog = document.getElementById('editUsuario');
+        dialog.showModal();
+        console.log(usuario);
+        dialog.querySelector('input[name="nombre"]').value = usuario.nombre;
+        dialog.querySelector('input[name="idRol"]').value = usuario.rol;
     }
 </script>
 
