@@ -12,3 +12,18 @@ require_once 'includes/connexion.php';
 if (!isset($connexion)) die();
 
 $salida['metodo'] = 'GET';
+
+die('[
+    {
+    "id": 1,
+    "nombre": "admin",
+    "idRol": 1,
+    "rol": "administrador"
+  },
+  {
+    "id": 2,
+    "nombre": "user",
+    "idRol": 2,
+    "rol": "usuario"
+  }
+]');

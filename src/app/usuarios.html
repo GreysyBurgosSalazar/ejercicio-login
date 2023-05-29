@@ -90,7 +90,16 @@
      */
     window.init = async () => {
         const data = await usuariosModel.getAll();
-        console.log(data);
+        const body = document.querySelector("tbody");
+        body.innerHTML = "";
+        data.forEach((usuario) => {
+            body.innerHTML += `<tr>
+            <td>${usuario.nombre}</td>
+            <td>${usuario.rol}</td>
+            <td><button>Editar</button></td>
+            <td><button class="danger">Eliminar</button></td>
+        </tr>`;
+        })
     }
 </script>
 
