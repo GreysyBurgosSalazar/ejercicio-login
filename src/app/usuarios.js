@@ -23,8 +23,9 @@ class UsuariosModel {
     usuarios = [];
 
     async getUsuario(id) {
+        console.log(id, this.usuarios[0].id);
         if(this.usuarios.length === 0) await this.getAll();
-        return this.usuarios.find((usuario) => usuario.id === id);
+        return this.usuarios.find((usuario) => parseInt(usuario.id) === parseInt(id));
     }
 
     async updateUsuario(datos) {
