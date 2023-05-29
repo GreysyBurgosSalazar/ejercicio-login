@@ -26,4 +26,12 @@ class UsuariosModel {
         if(this.usuarios.length === 0) await this.getAll();
         return this.usuarios.find((usuario) => usuario.id === id);
     }
+
+    async updateUsuario(datos) {
+        const respuesta = await fetch(this.url + datos.id, {
+            method: 'put',
+            body: JSON.stringify(datos)
+        })
+        return await respuesta.ok;
+    }
 }
