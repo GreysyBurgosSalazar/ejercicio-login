@@ -82,6 +82,22 @@
     </div>
 </section>
 
+<dialog id="editUsuario">
+    <form onsubmit="enviarEditarUsuario(event)">
+        <input type="hidden" name="id">
+        <label>Nombre: <input name="nombre"></label>
+        <br>
+        <label>Rol: <select name="idRol">
+            <option value="1">Administrador</option>
+            <option value="2">Usuario</option>
+        </select>
+        </label>
+        <br>
+        <input type="submit"> <button onclick="return cerrarEditarUsuario()">Cancelar</button>
+    </form>
+</dialog>
+
+
 <script>
     const usuariosModel = new UsuariosModel();
 
@@ -90,7 +106,48 @@
      */
     window.init = async () => {
         const data = await usuariosModel.getAll();
-        console.log(data);
+        const body = document.querySelector("tbody");
+        body.innerHTML = "";
+        data.forEach((usuario) => {
+            body.innerHTML += `<tr>
+            <td>${usuario.nombre}</td>
+            <td>${usuario.rol}</td>
+            <td><button onclick="abrirEditarUsuario(${usuario.id})">Editar</button></td>
+            <td><button class="danger">Eliminar</button></td>
+        </tr>`;
+        })
+    }
+
+    async function abrirEditarUsuario(id) {
+        const usuario = await usuariosModel.getUsuario(id);
+        const dialog = document.getElementById('editUsuario');
+        dialog.showModal();
+        console.log(usuario);
+        dialog.querySelector('input[name="nombre"]').value = usuario.nombre;
+        dialog.querySelector('select[name="idRol"]').value = usuario.idRol;
+        dialog.querySelector('input[name="id"]').value = usuario.id;
+    }
+
+    function cerrarEditarUsuario() {
+        const dialog = document.getElementById('editUsuario');
+        dialog.close();
+        return false;
+    }
+
+    async function enviarEditarUsuario(event) {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const usuario = {
+            id: formData.get('id'),
+            nombre: formData.get('nombre'),
+            idRol: formData.get('idRol')
+        }
+        const resultado = await usuariosModel.updateUsuario(usuario);
+        if(resultado) {
+            // TODO: mostrar mensaje de éxito
+        } else {
+            // TODO: mostrar mensaje de error
+        }
     }
 </script>
 

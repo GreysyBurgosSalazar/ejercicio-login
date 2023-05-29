@@ -16,6 +16,22 @@ class UsuariosModel {
         if(!respuesta.ok) {
             return false;
         }
-        return await respuesta.json();
+        this.usuarios = await respuesta.json();
+        return this.usuarios;
+    }
+
+    usuarios = [];
+
+    async getUsuario(id) {
+        if(this.usuarios.length === 0) await this.getAll();
+        return this.usuarios.find((usuario) => usuario.id === id);
+    }
+
+    async updateUsuario(datos) {
+        const respuesta = await fetch(this.url + datos.id, {
+            method: 'put',
+            body: JSON.stringify(datos)
+        })
+        return await respuesta.ok;
     }
 }
