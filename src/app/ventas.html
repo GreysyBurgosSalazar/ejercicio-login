@@ -61,10 +61,14 @@
 </section>
 
 <script>
-    const ventas = new VentasModel();
+    const ventas = new VentasModel(15);
 
     window.init = async () => {
-        const v = await ventas.getVentas(10);
+
+        const p = await ventas.getPaginas();
+        console.log(p);
+
+        const v = await ventas.getVentas();
         console.log(v);
     }
 </script>

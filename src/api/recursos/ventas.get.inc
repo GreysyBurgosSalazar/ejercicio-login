@@ -8,7 +8,7 @@ require_once 'includes/connexion.php';
 if (!isset($connexion)) die();
 
 if (count($peticion->parametrosPath()) > 0) {
-    if($peticion->parametrosPath()[0] === 'paginas') {
+    if($peticion->parametrosPath()[1] === 'paginas') {
         $cantidad = $peticion->parametrosQuery()['cantidad'];
         $sql = 'SELECT COUNT(`id`) AS `total` FROM `ventas`';
 
