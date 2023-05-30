@@ -1,10 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Ventas</title>
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="app.css">
+    <script src="control-acceso.js"></script>
+    <script src="ventas.js"></script>
 </head>
 <body>
-$END$
+<header>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="usuarios.html" class="current">Usuarios</a>
+    </nav>
+    <div id="welcome">Bienvenido: <span id="user-name"></span>
+        <button onclick="logout()">Logout</button>
+    </div>
+</header>
+
+<section>
+    <header>
+        <h1>Ventas</h1>
+    </header>
+
+    <table>
+        <colgroup>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col class="buttons">
+            <col class="buttons">
+        </colgroup>
+        <thead>
+        <tr>
+            <th>Vendedor</th>
+            <th>Cliente</th>
+            <th>Fecha</th>
+            <th>Importe</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Vendedor</td>
+            <td>Cliente</td>
+            <td>Fecha</td>
+            <td>Importe</td>
+            <td><button>Editar</button></td>
+            <td><button class="danger">Eliminar</button></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div>
+
+    </div>
+</section>
+
+<script>
+    const ventas = new VentasModel();
+
+    window.init = async () => {
+        const v = await ventas.getVentas(10);
+        console.log(v);
+    }
+</script>
+
 </body>
 </html>
