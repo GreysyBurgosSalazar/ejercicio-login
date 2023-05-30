@@ -56,7 +56,7 @@
     </table>
 
     <div>
-
+        <select id="paginador"></select>
     </div>
 </section>
 
@@ -66,10 +66,25 @@
     window.init = async () => {
 
         const p = await ventas.getPaginas();
-        console.log(p);
+        //console.log(p);
+        const paginador = document.getElementById('paginador');
+        for (let i = 1; i <= p.paginas; i++) {
+            const opt = document.createElement('option');
+            opt.value = i;
+            opt.innerText = i;
+            paginador.appendChild(opt);
+        }
+        paginador.addEventListener('change', () => {
+            cargarPagina(paginador.value);
+        })
 
         const v = await ventas.getVentas();
         console.log(v);
+    }
+
+
+    function cargarPagina(pagina) {
+        console.log(pagina);
     }
 </script>
 
