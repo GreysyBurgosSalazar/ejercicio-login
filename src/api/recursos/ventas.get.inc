@@ -20,8 +20,9 @@ if (count($peticion->parametrosPath()) > 0) {
     }
 } else {
     $cantidad = $peticion->parametrosQuery()['cantidad'];
+    $pagina = $peticion->parametrosQuery()['pagina'] * $cantidad;
 
-    $sql = "SELECT * FROM `ventas` ORDER BY `fecha` LIMIT $cantidad";
+    $sql = "SELECT * FROM `ventas` ORDER BY `fecha`, `id` LIMIT $pagina, $cantidad";
 
     $result = mysqli_query($connexion, $sql);
     while ($row = mysqli_fetch_assoc($result)) {

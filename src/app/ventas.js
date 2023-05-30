@@ -5,9 +5,10 @@ class VentasModel {
         this.ventasPorPagina = ventasPorPagina;
     }
 
-    async getVentas() {
-        const respuesta = await fetch(this.url+'?cantidad='+this.ventasPorPagina);
-        if(!respuesta.ok) {
+    async getVentas(pagina = 1) {
+        const respuesta = await fetch(this.url + '?cantidad='
+            + this.ventasPorPagina + '&pagina=' + pagina);
+        if (!respuesta.ok) {
             return false;
         }
         this.ventas = await respuesta.json();
@@ -15,8 +16,8 @@ class VentasModel {
     }
 
     async getPaginas() {
-        const respuesta = await fetch(this.url+'/paginas/?cantidad='+this.ventasPorPagina);
-        if(!respuesta.ok) {
+        const respuesta = await fetch(this.url + '/paginas/?cantidad=' + this.ventasPorPagina);
+        if (!respuesta.ok) {
             return false;
         }
         this.paginas = await respuesta.json();

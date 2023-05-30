@@ -78,13 +78,14 @@
             cargarPagina(paginador.value);
         })
 
-        const v = await ventas.getVentas();
-        console.log(v);
+        cargarPagina(1);
     }
 
 
-    function cargarPagina(pagina) {
+    async function cargarPagina(pagina) {
         console.log(pagina);
+        const v = await ventas.getVentas(pagina);
+        console.log(v);
     }
 </script>
 
